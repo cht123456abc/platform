@@ -41,12 +41,25 @@
                 <li class="nav-header">
                     <div class="dropdown profile-element"
                          style="text-align: center;font-size: 18px;font-weight: 600;color: white;">
-                        微同商城管理平台
+                        管理平台
                     </div>
-                    <div class="logo-element">微同
+                    <div class="logo-element">平台
                     </div>
                 </li>
-                <menu-item :item="item" v-for="item in menuList"></menu-item>
+                <menu-item :item="item" v-for="item in menuList">
+<!--                    <li>-->
+<!--                        <a v-if="item.type === 0" href="#">-->
+<!--                        <i v-if="item.icon != null" :class="item.icon"></i>-->
+<!--                        <span class="nav-label">{{item.name}}</span>-->
+<!--                        <span class="fa arrow"></span>-->
+<!--                        </a>-->
+<!--                        <ul v-if="item.type === 0" class="nav nav-second-level">-->
+<!--                        <menu-item :item="item" v-for="item in item.list"></menu-item>-->
+<!--                        </ul>-->
+<!--                        <a v-if="item.type === 1" class="J_menuItem" :href="item.url"><i :class="item.icon"></i>{{item.name}}</a>-->
+<!--                    </li>-->
+
+                </menu-item>
             </ul>
         </div>
     </nav>
@@ -104,11 +117,12 @@
             <a class="roll-nav roll-right J_tabRefresh"><i class="fa fa-refresh"></i> &nbsp;刷新</a>
         </div>
         <div class="J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="sys/main.html" frameborder="0"
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="pages/sys/main.html"
+                    frameborder="0"
                     data-id="main" seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">2018~2018 &copy; <a href="http://fly2you.cn" target="_blank">安徽微同科技有限公司</a>
+<!--            <div class="pull-right">2018~2018 &copy; <a href="http://fly2you.cn" target="_blank">安徽微同科技有限公司</a>-->
             </div>
         </div>
     </div>
@@ -306,7 +320,7 @@
         },
         methods: {
             getMenuList: function (event) {
-                $.getJSON("sys/menu/user?_" + $.now(), function (r) {
+                $.getJSON("sysMenu/list",function (r) {
                     vm.menuList = r.menuList;
                 });
             },
