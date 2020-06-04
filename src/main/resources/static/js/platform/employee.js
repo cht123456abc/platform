@@ -78,7 +78,7 @@ var vm = new Vue({
             // this.getUserLevels();
         },
         saveOrUpdate: function (event) {
-            var url = vm.user.id == null ? "/employee/save" : "/employee/update";
+            var url = vm.employee.id == null ? "/employee/save" : "/employee/update";
 
             Ajax.request({
                 type: "POST",
@@ -101,7 +101,7 @@ var vm = new Vue({
             confirm('确定要删除选中的记录？', function () {
                 Ajax.request({
                     type: "POST",
-                    url: "../user/delete",
+                    url: "/employee/delete",
                     contentType: "application/json",
                     params: JSON.stringify(ids),
                     successCallback: function (r) {
