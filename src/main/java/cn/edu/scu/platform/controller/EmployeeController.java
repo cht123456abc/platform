@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Wrapper;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -34,9 +36,9 @@ public class EmployeeController {
 
 
     @RequestMapping("/list")
-    public String list() {
-        List<Employee> res =  employeeService.list();
-        return res.toString();
+    public List<Employee> list() {
+        List<Employee> list = employeeService.selectAllEmployees();
+        return list;
     }
 
     @RequestMapping("/save")

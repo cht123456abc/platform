@@ -29,15 +29,13 @@ public class Account implements Serializable {
 
     private String name;
 
+    private String gender;
+
     private Integer age;
 
     private Integer phoneNumber;
 
     private String detail;
-
-    private Integer employeeId;
-
-    private Integer merchantId;
 
 
 }

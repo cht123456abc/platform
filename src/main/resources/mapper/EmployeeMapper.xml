@@ -2,4 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.scu.platform.mapper.EmployeeMapper">
 
+
+    <select id="selectAllEmployees" resultMap="resultMap">
+         select * from employee natural join account
+     </select>
+
+    <resultMap type="cn.edu.scu.platform.entity.Employee" id="resultMap">
+        <id property="id" column="id"/>
+        <result property="intendedOccupation" column="intended_occupation"/>
+        <result property="vocationCollection" column="vocation_collection"/>
+        <result property="merchantCollection" column="merchant_collection"/>
+        <result property="resume" column="resume"/>
+        <association property="account" javaType="cn.edu.scu.platform.entity.Account">
+            <id property="id" column="id"/>
+            <result property="account" column="account"/>
+            <result property="password" column="password"/>
+            <result property="name" column="name"/>
+            <result property="gender" column="gender"/>
+            <result property="age" column="age"/>
+            <result property="phoneNumber" column="phone_number"/>
+            <result property="detail" column="detail"/>
+        </association>
+    </resultMap>
+
 </mapper>

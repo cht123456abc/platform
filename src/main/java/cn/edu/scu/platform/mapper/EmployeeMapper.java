@@ -2,6 +2,10 @@ package cn.edu.scu.platform.mapper;
 
 import cn.edu.scu.platform.entity.Employee;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface EmployeeMapper extends BaseMapper<Employee> {
 
+    List<Employee> selectAllEmployees();
 }

@@ -2,6 +2,7 @@ package cn.edu.scu.platform.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -29,6 +30,9 @@ public class Employee implements Serializable {
     private String merchantCollection;
 
     private String resume;
+
+    @TableField
+    private Account account;
 
 
 }

@@ -66,8 +66,9 @@ INSERT INTO `sys_menu` VALUES ('28', '1', '代码生成器', 'pages/sys/generato
 INSERT INTO `sys_menu` VALUES ('29', '1', '系统日志', 'pages/sys/log.htm', 'sys:log:list', '1', 'fa fa-file-text-o', '8', '0');
 INSERT INTO `sys_menu` VALUES ('30', '1', '文件上传', 'pages/sys/oss.html', 'sys:oss:all', '1', 'fa fa-file-image-o', '6', '0');
 INSERT INTO `sys_menu` VALUES ('31', '0', '功能测试', null, null, '0', 'fa fa-bug', '11', '0');
-INSERT INTO `sys_menu` VALUES ('200', '0', '会员管理', null, null, '0', 'fa fa-user-circle-o', '1', '0');
-INSERT INTO `sys_menu` VALUES ('201', '200', '会员管理', 'pages/shop/shopuser.html', null, '1', 'fa fa-user-md', '1', '0');
+INSERT INTO `sys_menu` VALUES ('200', '0', '用户管理', null, null, '0', 'fa fa-user-circle-o', '1', '0');
+INSERT INTO `sys_menu` VALUES ('201', '200', '用户管理', 'pages/platform/employee.html', null, '1', 'fa fa-user-md', '1',
+                               '0');
 INSERT INTO `sys_menu` VALUES ('202', '201', '查看', null, 'user:list,user:info', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('203', '201', '新增', null, 'user:save', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('204', '201', '修改', null, 'user:update', '2', null, '0', '0');
