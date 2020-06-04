@@ -18,4 +18,6 @@ import java.util.Map;
 public interface EmployeeMapper extends BaseMapper<Employee> {
 
     List<Employee> selectAllEmployees();
+
+    Employee selectEmployeeById(Long id);
 }

@@ -29,4 +29,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         return employeeMapper.selectAllEmployees();
     }
 
+    public Employee selectEmployeeById(Long id){
+        return employeeMapper.selectEmployeeById(id);
+    }
+
 }

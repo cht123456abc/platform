@@ -17,4 +17,6 @@ public interface IEmployeeService extends IService<Employee> {
 
 
     List<Employee> selectAllEmployees();
+
+    Employee selectEmployeeById(Long id);
 }

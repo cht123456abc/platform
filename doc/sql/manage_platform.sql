@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2020-06-04 12:56:49
+Date: 2020-06-04 21:39:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,40 +29,35 @@ CREATE TABLE `account` (
   `detail` varchar(255) DEFAULT NULL,
   `gender` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1266732609623392258 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of account
 -- ----------------------------
-INSERT INTO `account` VALUES ('1266706477247180801', '123', '123', 'ccc', '11', '111', '111', '1');
-INSERT INTO `account` VALUES ('1266716307047440386', '123', '123', 'ccc', null, null, null, null);
-INSERT INTO `account` VALUES ('1266716307047440387', '123', '123', '111', null, null, null, null);
-INSERT INTO `account` VALUES ('1266732609623392257', '123', '123', '111', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for employee
 -- ----------------------------
 DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL,
   `intended_occupation` varchar(255) DEFAULT NULL,
   `vocation_collection` varchar(255) DEFAULT NULL,
   `merchant_collection` varchar(255) DEFAULT NULL,
   `resume` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of employee
 -- ----------------------------
-INSERT INTO `employee` VALUES ('1266706477247180801', 'java', 'java', 'gs', 'hahaa');
 
 -- ----------------------------
 -- Table structure for merchant
 -- ----------------------------
 DROP TABLE IF EXISTS `merchant`;
 CREATE TABLE `merchant` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL,
   `checked` int(11) NOT NULL,
   `type` varchar(255) DEFAULT NULL,
   `registered_capital` varchar(255) DEFAULT NULL,

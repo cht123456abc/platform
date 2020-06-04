@@ -7,6 +7,8 @@ $(function () {
             label: '用户名称', name: 'account.account', index: 'account.account', width: 80
         }, {
             label: '用户密码', name: 'account.password', index: 'account.password', hidden: true
+        },{
+            label: '名字', name: 'account.name', index: 'account.name', width: 80
         }, {
             label: '性别', name: 'account.gender', index: 'account.gender', width: 40, formatter: function (value) {
                 return transGender(value);
@@ -25,36 +27,7 @@ $(function () {
             label: '收藏商家',name: 'merchantCollection',index: 'merchantCollection',width: 80
         },{
             label: '简历',name: 'resume',index: 'resume',width: 120
-        }
-        //     {
-        //     label: '出生日期', name: 'birthday', index: 'birthday', width: 80, formatter: function (value) {
-        //         return transDate(value);
-        //     }
-        // }, {
-        //     label: '注册时间', name: 'registerTime', index: 'register_time', width: 80, formatter: function (value) {
-        //         return transDate(value);
-        //     }
-        // }, {
-        //     label: '最后登录时间', name: 'lastLoginTime', index: 'last_login_time', width: 80, formatter: function (value) {
-        //         return transDate(value);
-        //     }
-        // }, {
-        //     label: '最后登录Ip', name: 'lastLoginIp', index: 'last_login_ip', hidden: true
-        // }, {
-        //     label: '会员等级', name: 'levelName', width: 40
-        // }, {
-        //     label: '微信名', name: 'nickname', index: 'nickname', width: 80
-        // },
-        //     {
-        //     label: '注册Ip', name: 'registerIp', index: 'register_ip', hidden: true
-        // }, {
-        //     label: '头像', name: 'avatar', index: 'avatar', width: 80, formatter: function (value) {
-        //         return transImg(value);
-        //     }
-        // }, {
-        //     label: '微信Id', name: 'weixinOpenid', index: 'weixin_openid', width: 80, hidden: true
-        // }
-        ]
+        }]
     });
 });
 
@@ -65,6 +38,11 @@ var vm = new Vue({
         title: null,
         user: {
             gender: 1
+        },
+        employee: {
+            account:{
+                gender: 1,
+            }
         },
         ruleValidate: {
             username: [
@@ -86,7 +64,7 @@ var vm = new Vue({
             vm.user = {gender: '1'};
             vm.userLevels = [];
 
-            this.getUserLevels();
+            // this.getUserLevels();
         },
         update: function (event) {
             var id = getSelectedRow("#jqGrid");
@@ -97,16 +75,16 @@ var vm = new Vue({
             vm.title = "修改";
 
             vm.getInfo(id)
-            this.getUserLevels();
+            // this.getUserLevels();
         },
         saveOrUpdate: function (event) {
-            var url = vm.user.id == null ? "../user/save" : "../user/update";
+            var url = vm.user.id == null ? "/employee/save" : "/employee/update";
 
             Ajax.request({
                 type: "POST",
                 url: url,
                 contentType: "application/json",
-                params: JSON.stringify(vm.user),
+                params: JSON.stringify(vm.employee),
                 successCallback: function (r) {
                     alert('操作成功', function (index) {
                         vm.reload();
@@ -173,10 +151,10 @@ var vm = new Vue({
         },
         getInfo: function (id) {
             Ajax.request({
-                url: "../user/info/" + id,
+                url: "/employee/info/" + id,
                 async: true,
                 successCallback: function (r) {
-                    vm.user = r.user;
+                    vm.employee = r.employee;
                 }
             });
         },
