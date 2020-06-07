@@ -30,7 +30,7 @@ public class Account implements Serializable {
 
     private String name;
 
-    private String gender;
+    private Integer gender;
 
     private Integer age;
 

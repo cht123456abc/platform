@@ -114,7 +114,7 @@ var vm = new Vue({
             });
         },
         exportUser: function () {
-            exportFile('#rrapp', '../user/export', {'username': vm.q.username});
+            exportFile('#rrapp', '/employee/export', );
         },
         coupon: function () {
             var id = getSelectedRow("#jqGrid");

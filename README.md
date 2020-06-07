@@ -1,4 +1,4 @@
-# 兼职平台后端管理系统
+# **兼职平台后端管理系统**
 * a back-end management platform about part-time jobs
 
 ## 技术栈

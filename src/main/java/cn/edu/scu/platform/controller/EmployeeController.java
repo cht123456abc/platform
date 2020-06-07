@@ -6,6 +6,7 @@ import cn.edu.scu.platform.entity.Employee;
 import cn.edu.scu.platform.entity.SysMenu;
 import cn.edu.scu.platform.service.IAccountService;
 import cn.edu.scu.platform.service.IEmployeeService;
+import cn.edu.scu.platform.utils.ExcelExport;
 import cn.edu.scu.platform.utils.R;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import sun.rmi.runtime.Log;
 
+import javax.servlet.http.HttpServletResponse;
 import java.sql.Wrapper;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -48,7 +48,7 @@ public class EmployeeController {
     @RequestMapping("/info/{id}")
     public Map<String, Object> info(@PathVariable("id") Long id) {
         Log.info("待修改账号");
-        Log.info("ID",id);
+        Log.info("ID", id);
         Employee res = employeeService.selectEmployeeById(id);
         if (res == null) return R.error("获取用户信息失败");
         return R.ok().put("employee", res);
@@ -79,19 +79,19 @@ public class EmployeeController {
     }
 
     @RequestMapping("/delete")
-    public Map<String,Object> delete(@RequestBody List<Long> ids){
+    public Map<String, Object> delete(@RequestBody List<Long> ids) {
         Log.info("删除账号");
         ids.stream().forEach(id -> Log.info("ID" + id));
-        if(employeeService.removeByIds(ids)){
+        if (employeeService.removeByIds(ids)) {
             Log.info("删除用户成功");
-            if(accountService.removeByIds(ids)){
+            if (accountService.removeByIds(ids)) {
                 Log.info("删除账号成功");
                 return R.ok();
-            }else{
+            } else {
                 Log.info("删除账号失败");
                 return R.error("删除账号失败");
             }
-        }else{
+        } else {
             Log.info("删除用户失败");
             return R.error("删除用户失败");
         }
@@ -120,4 +120,33 @@ public class EmployeeController {
         }
     }
 
+    @RequestMapping("/export")
+    public R export(@RequestParam Map<String, Object> params, HttpServletResponse response) {
+
+        List<Employee> employeeList = employeeService.selectAllEmployees();
+
+        ExcelExport ee = new ExcelExport("用户列表");
+
+        String[] header = new String[]{"账号", "名称", "性别", "年龄","手机号","详情"};
+
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        if (employeeList != null && employeeList.size() != 0) {
+            for (Employee employee : employeeList) {
+                LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+                Account account = employee.getAccount();
+                map.put("ACCOUNT", account.getAccount());
+                map.put("NAME", account.getName());
+                map.put("GENDER", account.getGender() == 1 ? "男" : (account.getGender() == 2 ? "女" : "未知"));
+                map.put("AGE",account.getAge());
+                map.put("PHONE_NUMBER", account.getPhoneNumber());
+                map.put("DETAIL",account.getDetail());
+                list.add(map);
+            }
+        }
+
+        ee.addSheetByMap("用户", list, header);
+        ee.export(response);
+        return R.ok();
+    }
 }
