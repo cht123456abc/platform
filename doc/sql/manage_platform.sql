@@ -25,7 +25,7 @@ CREATE TABLE `account` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `age` int(11) DEFAULT NULL,
-  `phone_number` int(11) DEFAULT NULL,
+  `phone_number` bigint(20) DEFAULT NULL,
   `detail` varchar(255) DEFAULT NULL,
   `gender` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)

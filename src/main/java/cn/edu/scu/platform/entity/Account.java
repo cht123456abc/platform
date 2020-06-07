@@ -34,7 +34,7 @@ public class Account implements Serializable {
 
     private Integer age;
 
-    private Integer phoneNumber;
+    private Long phoneNumber;
 
     private String detail;
 
