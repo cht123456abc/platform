@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <#include "../sys/header.html">
+</head>
+<script src="/statics/libs/jquery-extend.js"></script>
+<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+<!--数据可视化-->
+<script type="text/javascript" src="/js/visualization/echarts.min.js"></script>
+<body>
+    <div id="location" style="margin-bottom: 200px">
+        <span id="provinceSpan">
+            省份：<select id="province"></select>
+        </span>
+        <span id="citySpan">
+            城市:<select id="city"></select>
+        </span>
+    </div>
+    <div>
+        <span><div id="main" style="width: 600px;height:400px;float: left;"></div></span>
+        <span><div id="proportion" style="width: 600px;height:400px;float: left;"></div></span>
+    </div>
+</body>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.get("/visualization/getProvince",function(data,status){
+            var allProvince = eval(data);
+            $("#province").empty();
+            $("#province").append(" <option value='0'>--请选择--</option>");
+            $.each(allProvince,function (idx,item) {
+                $("#province").append("<option value='"+item.id+"'>"+item.name+"</option>");
+            });
+        });
+
+        $("#province").change(function () {
+            var provinceId = $(this).val();
+            clearChart('main');
+            clearChart('proportion');
+            if (provinceId==0){
+                $("#main").hide();
+                $("#proportion").hide();
+            }else {
+                $("#main").show();
+            }
+            $.post("/visualization/getCity",{id:provinceId},function (data,status) {
+                var allCity = eval(data);
+                var x_Data = [];
+                var y_Data = [];
+                $("#city").empty();
+                $("#city").append(" <option value='0'>--请选择--</option>");
+                $.each(allCity,function (idx,item) {
+                    $("#city").append("<option value='"+item.id+"'>"+item.name+"</option>");
+                    x_Data.push(item.name);
+                    y_Data.push(random(1,100));
+                });
+                showHistogram(x_Data,y_Data);
+            });
+        });
+
+        $("#city").change(function () {
+            var cityId = $(this).val();
+            var cityName = $(this).find("option:selected").text();
+            clearChart('proportion');
+            if (cityId==0){
+                $("#proportion").hide();
+            }else {
+                $("#proportion").show();
+            }
+            $.post("/visualization/getCityLocationProportion",{id:cityId},function (data,status){
+                showPieChart(cityName,eval(data));
+            });
+        });
+    });
+
+    function clearChart(chart) {
+        var myChart = echarts.init(document.getElementById(chart));
+        myChart.dispose();
+    }
+    function showHistogram(x_data,y_data) {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '兼职人数信息'
+            },
+            tooltip: {},
+            legend: {
+                data:['人数']
+            },
+            xAxis: {
+                data: x_data,
+                axisLabel:{
+                    interval:0,
+                    formatter:function(val){
+                        return val.split("").join("\n");
+                    }
+                }
+            },
+            yAxis: {},
+            series: [{
+                name: '人数',
+                type: 'bar',
+                data: y_data
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+
+    function showPieChart(city,data) {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('proportion'));
+        // 指定图表的配置项和数据
+        myChart.setOption({
+            title: {
+                text: '职位人数占比',
+                left: 'center',
+                top: 20,
+                textStyle: {
+                    color: '#ccc'
+                }
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {d}%"
+            },
+            series : [
+                {
+                    name: '人数占比',
+                    type: 'pie',    // 设置图表类型为饼图
+                    radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                    data:data,
+                    roseType: 'angle',
+                    itemStyle: {
+                        normal: {
+                            shadowBlur: 200,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        });
+        myChart.setOption(option);
+    }
+    //随机产生m-n的数字
+    function random (min,max){
+        var num = Math.floor(Math.random()*(max - min) + min);
+        return num;
+    }
+
+</script>
+<script type="text/javascript"></script>
+</html>

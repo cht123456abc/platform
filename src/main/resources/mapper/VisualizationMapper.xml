@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.scu.platform.mapper.VisualizationMapper">
+    <select id="getProvinceList" resultType="cn.edu.scu.platform.entity.Province">
+        SELECT `id`,`name` from `province`
+    </select>
+
+    <select id="getCityListByPId"  parameterType="int" resultType="cn.edu.scu.platform.entity.City">
+        SELECT `id`,`parent_id`,`name` FROM `city` WHERE `parent_id` = #{provinceId}
+    </select>
+
+    <select id="getDistributionByCityId" parameterType="int" resultType="cn.edu.scu.platform.entity.Distribution">
+        SELECT `id`,`totalNum` ,`position_id` positionId,`position_name` positionName,`city_id` cityId,`city_name` cityName FROM `distribution` WHERE `city_id` = #{cityId}
+    </select>
+
+</mapper>
