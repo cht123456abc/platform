@@ -58,7 +58,7 @@ CREATE TABLE `employee` (
 DROP TABLE IF EXISTS `merchant`;
 CREATE TABLE `merchant` (
   `id` bigint(20) NOT NULL,
-  `checked` int(11) NOT NULL,
+  `checked` int(11) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `registered_capital` varchar(255) DEFAULT NULL,
   `initial_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
