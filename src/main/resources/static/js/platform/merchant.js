@@ -32,7 +32,6 @@ $(function () {
         },{
             label: '评分',name: 'account.score',index: 'account.score',width: 120
         }]
-
     });
 });
 

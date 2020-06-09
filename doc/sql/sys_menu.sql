@@ -101,6 +101,7 @@ INSERT INTO `sys_menu` VALUES ('239', '238', '查看', null, 'adposition:list,ad
 INSERT INTO `sys_menu` VALUES ('240', '238', '新增', null, 'adposition:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('241', '238', '修改', null, 'adposition:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('242', '238', '删除', null, 'adposition:delete', '2', null, '6', '0');
+
 INSERT INTO `sys_menu` VALUES ('243', '0', '推广管理', null, null, '0', 'fa fa-hand-paper-o', '5', '0');
 INSERT INTO `sys_menu` VALUES ('244', '243', '优惠劵管理', 'pages/shop/coupon.html', null, '1', 'fa fa-cc-visa', '2', '0');
 INSERT INTO `sys_menu` VALUES ('245', '244', '查看', null, 'coupon:list,coupon:info', '2', null, '6', '0');

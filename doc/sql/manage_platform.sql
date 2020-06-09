@@ -70,6 +70,7 @@ CREATE TABLE `merchant` (
 -- ----------------------------
 -- Records of merchant
 -- ----------------------------
+
 -- ----------------------------
 -- Table structure for recruitment
 -- ----------------------------

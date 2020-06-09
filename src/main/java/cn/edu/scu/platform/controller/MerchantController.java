@@ -141,6 +141,7 @@ public class MerchantController {
                 map.put("PHONE_NUMBER", account.getPhoneNumber());
                 map.put("DETAIL",account.getDetail());
                 list.add(map);
+
             }
         }
 

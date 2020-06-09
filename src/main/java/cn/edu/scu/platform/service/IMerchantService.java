@@ -17,5 +17,4 @@ public interface IMerchantService extends IService<Merchant> {
     List<Merchant> selectAllMerchant();
 
     Merchant selectMerchantById(Long id);
-
 }
