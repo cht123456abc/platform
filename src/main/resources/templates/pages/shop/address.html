@@ -2,7 +2,7 @@
 <html>
 <head>
     <title></title>
-    #parse("sys/header.html")
+    <#include "../sys/header.html">
 </head>
 <body>
 <div id="rrapp" v-cloak>
@@ -18,9 +18,9 @@
                 <i-button @click="query">查询</i-button>
             </div>
             <div class="buttons-group">
-                #if($shiro.hasPermission("address:delete"))
+
                 <i-button type="error" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</i-button>
-                #end
+
             </div>
         </Row>
         <table id="jqGrid"></table>
@@ -28,6 +28,6 @@
     </div>
 </div>
 
-<script src="${rc.contextPath}/js/shop/address.js?_${date.systemTime}"></script>
+<script src="/js/shop/address.js?"></script>
 </body>
 </html>

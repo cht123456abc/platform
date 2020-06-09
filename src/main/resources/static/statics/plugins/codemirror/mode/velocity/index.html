@@ -51,9 +51,9 @@
 #parse( "lecorbusier.vm" )
 #parse( $foo )
 
-#evaluate( 'string with VTL #if(true)will be displayed#end' )
+#evaluate( 'string with VTL #if(true)will be displayed' )
 
-#define( $hello ) Hello $who #end #set( $who = "World!") $hello ## displays Hello World!
+#define( $hello ) Hello $who  #set( $who = "World!") $hello ## displays Hello World!
 
 #foreach( $customer in $customerList )
 
@@ -65,12 +65,12 @@
     #{else}
         it's not!
         #stop
-    #end
+
 
     #if ($foreach.parent.hasNext)
         $velocityCount
-    #end
-#end
+
+
 
 $someObject.getValues("this is a string split
         across lines")
@@ -81,11 +81,11 @@ $someObject("This plus $something in the middle").method(7567).property
     #foreach( $something in $somelist )
         <tr><td bgcolor=$color>$something</td></tr>
         <tr><td bgcolor=$color>$bodyContent</td></tr>
-    #end
-#end
+
+
 
 #tablerows("red" ["dadsdf","dsa"])
-#@tablerows("red" ["dadsdf","dsa"]) some body content #end
+#@tablerows("red" ["dadsdf","dsa"]) some body content
 
    Variable reference: #set( $monkey = $bill )
    String literal: #set( $monkey.Friend = 'monica' )

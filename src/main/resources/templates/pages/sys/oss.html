@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>文件上传</title>
-    #parse("sys/header.html")
-    <script src="${rc.contextPath}/statics/libs/ajaxupload.js"></script>
+    <#include "../sys/header.html">
+    <script src="/statics/libs/ajaxupload.js"></script>
 </head>
 <body>
 <div id="rrapp" v-cloak>
@@ -121,6 +121,6 @@
     </Card>
 </div>
 
-<script src="${rc.contextPath}/js/sys/oss.js?_${date.systemTime}"></script>
+<script src="/js/sys/oss.js?"></script>
 </body>
 </html>

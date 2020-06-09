@@ -18,7 +18,7 @@ CodeMirror.defineMode("velocity", function() {
         return obj;
     }
 
-    var keywords = parseWords("#end #else #break #stop #[[ #]] " +
+    var keywords = parseWords(" #else #break #stop #[[ #]] " +
                               "#{end} #{else} #{break} #{stop}");
     var functions = parseWords("#if #elseif #foreach #set #include #parse #macro #define #evaluate " +
                                "#{if} #{elseif} #{foreach} #{set} #{include} #{parse} #{macro} #{define} #{evaluate}");
