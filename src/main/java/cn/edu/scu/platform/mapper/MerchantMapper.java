@@ -17,4 +17,5 @@ public interface MerchantMapper extends BaseMapper<Merchant> {
     List<Merchant> selectAllMerchant();
 
     Merchant selectMerchantById(Long id);
+
 }

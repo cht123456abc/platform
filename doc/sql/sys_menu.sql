@@ -85,8 +85,8 @@ INSERT INTO `sys_menu` VALUES ('213', '212', '查看', null, 'address:list,addre
 INSERT INTO `sys_menu` VALUES ('214', '212', '新增', null, 'address:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('215', '212', '修改', null, 'address:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('216', '212', '删除', null, 'address:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('222', '0', '商城配置', null, null, '0', 'fa fa-shopping-cart', '2', '0');
-INSERT INTO `sys_menu` VALUES ('223', '222', '商品属性种类', 'pages/shop/attributecategory.html', null, '1', 'fa fa-sun-o', '0', '0');
+INSERT INTO `sys_menu` VALUES ('222', '0', '商户信息管理', null, null, '0', 'fa fa-shopping-cart', '2', '0');
+INSERT INTO `sys_menu` VALUES ('223', '222', '商户信息管理', 'pages/platform/merchant.html', null, '1', 'fa fa-sun-o', '0', '0');
 INSERT INTO `sys_menu` VALUES ('224', '223', '查看', null, 'attributecategory:list,attributecategory:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('225', '223', '新增', null, 'attributecategory:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('226', '223', '修改', null, 'attributecategory:update', '2', null, '6', '0');

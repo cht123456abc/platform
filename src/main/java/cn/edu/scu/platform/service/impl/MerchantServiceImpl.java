@@ -29,5 +29,4 @@ public class MerchantServiceImpl extends ServiceImpl<MerchantMapper, Merchant> i
     public Merchant selectMerchantById(Long id){
         return merchantMapper.selectMerchantById(id);
     }
-
 }

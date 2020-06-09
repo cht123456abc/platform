@@ -42,5 +42,4 @@ public class Merchant implements Serializable {
     @TableField(exist = false)
     private Account account;
 
-
 }
