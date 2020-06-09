@@ -160,7 +160,6 @@ INSERT INTO `sys_menu` VALUES ('301', '297', '删除', null, 'category:delete', 
 INSERT INTO `sys_menu` VALUES ('302', '1', '通用字典表', 'pages/sys/macro.html', null, '1', 'fa fa-book', '6', '0');
 INSERT INTO `sys_menu` VALUES ('303', '302', '查看', null, 'sys:macro:list,sys:macro:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('304', '302', '新增', null, 'sys:macro:save', '2', null, '6', '0');
-
 INSERT INTO `sys_menu` VALUES ('305', '302', '修改', null, 'sys:macro:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('306', '302', '删除', null, 'sys:macro:delete', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('307', '222', '渠道管理', 'pages/shop/channel.html', null, '1', 'fa fa-road', '2', '1');

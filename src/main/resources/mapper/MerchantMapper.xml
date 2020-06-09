@@ -24,12 +24,10 @@
     <select id="selectMerchantById" resultMap="resultMap">
          select * from merchant natural join account where `id` = #{id};
      </select>
-
     <select id="selectAllMerchant"  resultMap="resultMap" >
         select * from merchant natural join account
 
     </select>
-
 
 
 </mapper>

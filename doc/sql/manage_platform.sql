@@ -73,6 +73,7 @@ CREATE TABLE `merchant` (
 -- ----------------------------
 -- Table structure for recruitment
 -- ----------------------------
+
 DROP TABLE IF EXISTS `recruitment`;
 CREATE TABLE `recruitment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
