@@ -1,12 +1,12 @@
 package cn.edu.scu.platform.entity;
 
-import java.time.LocalDateTime;
-import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -39,5 +39,6 @@ public class Merchant implements Serializable {
 
     private Integer score;
 
-
+    @TableField(exist = false)
+    private Account account;
 }

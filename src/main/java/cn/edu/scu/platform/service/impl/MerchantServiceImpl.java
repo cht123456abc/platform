@@ -4,7 +4,10 @@ import cn.edu.scu.platform.entity.Merchant;
 import cn.edu.scu.platform.mapper.MerchantMapper;
 import cn.edu.scu.platform.service.IMerchantService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,5 +19,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MerchantServiceImpl extends ServiceImpl<MerchantMapper, Merchant> implements IMerchantService {
+    @Autowired
+    private MerchantMapper merchantMapper;
+
+    public List<Merchant> selectAllMerchant(){
+        return merchantMapper.selectAllMerchant();
+    }
+
+    public Merchant selectMerchantById(Long id){
+        return merchantMapper.selectMerchantById(id);
+    }
 
 }

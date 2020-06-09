@@ -1,9 +1,9 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '/employee/list',
+        url: '/merchant/list',
         colModel: [{
-            label: 'id', name: 'id', index: 'id', key: true, hidden: true},
-            {
+            label: 'id', name: 'id', index: 'id', key: true, hidden: true
+        }, {
             label: '用户名称', name: 'account.account', index: 'account.account', width: 80
         }, {
             label: '用户密码', name: 'account.password', index: 'account.password', hidden: true
@@ -11,8 +11,7 @@ $(function () {
             label: '名字', name: 'account.name', index: 'account.name', width: 80
         }, {
             label: '性别', name: 'account.gender', index: 'account.gender', width: 40, formatter: function (value) {
-                return transGender(value);
-            }
+                return transGender(value);}
         }, {
             label: '手机号码', name: 'account.phoneNumber', index: 'account.phoneNumber', width: 120
         },{
@@ -20,13 +19,18 @@ $(function () {
         },{
             label: '备注',name: 'account.detail',index: 'account.detail',width: 120
         },{
-            label:'目标职位',name: 'intendedOccupation',index: 'intendedOccupation',width: 80
+            label: '待审核', name: 'account.checked', index: 'account.checked', width: 80},{
+            label: '商户类型', name: 'account.type', index: 'account.type', hidden: true
         },{
-            label: '收藏职位',name: 'vocationCollection',index:'vocationCollection',width: 80
+            label: '注册资本', name: 'account.registeredCapital', index: 'account.registeredCapital', width: 80
+        }, {
+            label: '注册日期', name: 'account.initialDate', index: 'account.initialDate', width: 80
+        }, {
+            label: '注册地址', name: 'account.registeredAddress', index: 'account.registeredAddress', width: 120
         },{
-            label: '收藏商家',name: 'merchantCollection',index: 'merchantCollection',width: 80
+            label:'业务范围', name: 'account.businessScope', index: 'account.businessScope',width: 80
         },{
-            label: '简历',name: 'resume',index: 'resume',width: 120
+            label: '评分',name: 'account.score',index: 'account.score',width: 120
         }]
     });
 });
@@ -39,9 +43,9 @@ var vm = new Vue({
         user: {
             gender: 1
         },
-        employee: {
+        merchant: {
             account:{
-                gender: 1,
+                gender: 1
             }
         },
         ruleValidate: {
@@ -78,13 +82,13 @@ var vm = new Vue({
             // this.getUserLevels();
         },
         saveOrUpdate: function (event) {
-            var url = vm.employee.id == null ? "/employee/save" : "/employee/update";
+            var url = vm.merchant.id == null ? "/merchant/save" : "/merchant/update";
 
             Ajax.request({
                 type: "POST",
                 url: url,
                 contentType: "application/json",
-                params: JSON.stringify(vm.employee),
+                params: JSON.stringify(vm.merchant),
                 successCallback: function (r) {
                     alert('操作成功', function (index) {
                         vm.reload();
@@ -101,7 +105,7 @@ var vm = new Vue({
             confirm('确定要删除选中的记录？', function () {
                 Ajax.request({
                     type: "POST",
-                    url: "/employee/delete",
+                    url: "/merchant/delete",
                     contentType: "application/json",
                     params: JSON.stringify(ids),
                     successCallback: function (r) {
@@ -114,7 +118,7 @@ var vm = new Vue({
             });
         },
         exportUser: function () {
-            exportFile('#rrapp', '/employee/export' );
+            exportFile('#rrapp', '/merchant/export');
         },
         coupon: function () {
             var id = getSelectedRow("#jqGrid");
@@ -151,10 +155,10 @@ var vm = new Vue({
         },
         getInfo: function (id) {
             Ajax.request({
-                url: "/employee/info/" + id,
+                url: "/merchant/info/" + id,
                 async: true,
                 successCallback: function (r) {
-                    vm.employee = r.employee;
+                    vm.merchant = r.merchant;
                 }
             });
         },
