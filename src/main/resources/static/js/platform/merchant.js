@@ -11,8 +11,7 @@ $(function () {
             label: '名字', name: 'account.name', index: 'account.name', width: 80
         }, {
             label: '性别', name: 'account.gender', index: 'account.gender', width: 40, formatter: function (value) {
-                return transGender(value);
-            }
+                return transGender(value);}
         }, {
             label: '手机号码', name: 'account.phoneNumber', index: 'account.phoneNumber', width: 120
         },{
