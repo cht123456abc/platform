@@ -2,4 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.scu.platform.mapper.MerchantMapper">
 
+    <resultMap type="cn.edu.scu.platform.entity.Merchant" id="resultMap">
+        <id property="id" column="id"/>
+        <result property="checked" column="checked"/>
+        <result property="type" column="type"/>
+        <result property="registeredAddress" column="registered_address"/>
+        <result property="initialDate" column="initial_date"/>
+        <result property="businessScope" column="business_scope"/>
+        <result property="score" column="score"/>
+        <association property="account" javaType="cn.edu.scu.platform.entity.Account">
+            <id property="id" column="id"/>
+            <result property="account" column="account"/>
+            <result property="password" column="password"/>
+            <result property="name" column="name"/>
+            <result property="gender" column="gender"/>
+            <result property="age" column="age"/>
+            <result property="phoneNumber" column="phone_number"/>
+            <result property="detail" column="detail"/>
+        </association>
+    </resultMap>
+    <select id="selectMerchantById" resultMap="resultMap">
+         select * from merchant natural join account where `id` = #{id};
+     </select>
+    <select id="selectAllMerchant"  resultMap="resultMap" >
+        select * from merchant natural join account
+
+    </select>
+
+
 </mapper>
