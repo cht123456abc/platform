@@ -2,8 +2,8 @@ $(function () {
     $("#jqGrid").Grid({
         url: '/employee/list',
         colModel: [{
-            label: 'id', name: 'id', index: 'id', key: true, hidden: true
-        }, {
+            label: 'id', name: 'id', index: 'id', key: true, hidden: true},
+            {
             label: '用户名称', name: 'account.account', index: 'account.account', width: 80
         }, {
             label: '用户密码', name: 'account.password', index: 'account.password', hidden: true
@@ -114,7 +114,7 @@ var vm = new Vue({
             });
         },
         exportUser: function () {
-            exportFile('#rrapp', '/employee/export', );
+            exportFile('#rrapp', '/employee/export' );
         },
         coupon: function () {
             var id = getSelectedRow("#jqGrid");

@@ -34,7 +34,6 @@ $(function () {
         }]
     });
 });
-
 var vm = new Vue({
     el: '#rrapp',
     data: {

@@ -101,7 +101,6 @@ INSERT INTO `sys_menu` VALUES ('239', '238', '查看', null, 'adposition:list,ad
 INSERT INTO `sys_menu` VALUES ('240', '238', '新增', null, 'adposition:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('241', '238', '修改', null, 'adposition:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('242', '238', '删除', null, 'adposition:delete', '2', null, '6', '0');
-
 INSERT INTO `sys_menu` VALUES ('243', '0', '推广管理', null, null, '0', 'fa fa-hand-paper-o', '5', '0');
 INSERT INTO `sys_menu` VALUES ('244', '243', '优惠劵管理', 'pages/shop/coupon.html', null, '1', 'fa fa-cc-visa', '2', '0');
 INSERT INTO `sys_menu` VALUES ('245', '244', '查看', null, 'coupon:list,coupon:info', '2', null, '6', '0');
@@ -161,6 +160,7 @@ INSERT INTO `sys_menu` VALUES ('301', '297', '删除', null, 'category:delete', 
 INSERT INTO `sys_menu` VALUES ('302', '1', '通用字典表', 'pages/sys/macro.html', null, '1', 'fa fa-book', '6', '0');
 INSERT INTO `sys_menu` VALUES ('303', '302', '查看', null, 'sys:macro:list,sys:macro:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('304', '302', '新增', null, 'sys:macro:save', '2', null, '6', '0');
+
 INSERT INTO `sys_menu` VALUES ('305', '302', '修改', null, 'sys:macro:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('306', '302', '删除', null, 'sys:macro:delete', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('307', '222', '渠道管理', 'pages/shop/channel.html', null, '1', 'fa fa-road', '2', '1');

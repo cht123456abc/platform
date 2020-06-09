@@ -27,6 +27,7 @@
 
     <select id="selectAllMerchant"  resultMap="resultMap" >
         select * from merchant natural join account
+
     </select>
 
 

@@ -110,7 +110,7 @@ public class MerchantController {
 //                return R.ok();
 //            } else {
 //                Log.info("更新用户失败");
-//                return R.error("更新用户失败");
+//               return R.error("更新用户失败");
 //            }
             return R.ok();
         } else {
