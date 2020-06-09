@@ -38,7 +38,6 @@ public class SysMenuController {
         return R.ok().put("menuList",list);
     }
 
-    // TODO: 2020/6/7 管理菜单 
     @RequestMapping("/all")
     public Map<String,Object> all(@RequestParam Map<String, Object> params){
         List<SysMenu> list = sysMenuService.queryList(params);
