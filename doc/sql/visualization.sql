@@ -18,7 +18,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`manage_platform` /*!40100 DEFAULT CHARA
 USE `manage_platform`;
 
 /*Table structure for table `city` */
-INSERT INTO `sys_menu` (parent_id,NAME,TYPE,order_num) VALUE (314,"流量统计",1,1);
 
 DROP TABLE IF EXISTS `city`;
 
@@ -91,3 +90,5 @@ insert  into `province`(`id`,`name`) values (1,'四川'),(2,'贵州');
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+INSERT INTO `sys_menu` (parent_id,NAME,TYPE,order_num) VALUE (314,"流量统计",1,1);
