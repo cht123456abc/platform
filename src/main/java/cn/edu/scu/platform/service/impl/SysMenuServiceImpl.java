@@ -82,6 +82,11 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     }
 
     @Override
+    public List<SysMenu> queryList(Map<String, Object> params) {
+        return baseMapper.queryList(params);
+    }
+
+    @Override
     @Transactional
     public void deleteBatch(Long[] menuIds) {
         baseMapper.deleteBatch(menuIds);

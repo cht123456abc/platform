@@ -4,6 +4,7 @@ import cn.edu.scu.platform.entity.SysMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -24,4 +25,6 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
     void deleteBatch(Long[] menuIds);
 
     void update(SysMenu menu);
+
+    List<SysMenu> queryList(Map<String, Object> params);
 }

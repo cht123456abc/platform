@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2020-06-04 21:39:37
+Date: 2020-06-09 15:51:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,11 +29,12 @@ CREATE TABLE `account` (
   `detail` varchar(255) DEFAULT NULL,
   `gender` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of account
 -- ----------------------------
+INSERT INTO `account` VALUES ('1', '1', '1', '1', '1', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for employee
@@ -67,13 +68,15 @@ CREATE TABLE `merchant` (
   `score` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- ----------------------------
 -- Records of merchant
 -- ----------------------------
+INSERT INTO `merchant` VALUES ('1', null, null, null, null, null, null, null);
+
 -- ----------------------------
 -- Table structure for recruitment
 -- ----------------------------
-
 DROP TABLE IF EXISTS `recruitment`;
 CREATE TABLE `recruitment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -111,11 +114,11 @@ CREATE TABLE `sys_menu` (
 -- Records of sys_menu
 -- ----------------------------
 INSERT INTO `sys_menu` VALUES ('1', '0', '系统管理', null, null, '0', 'fa fa-cog', '11', '0');
-INSERT INTO `sys_menu` VALUES ('2', '1', '管理员列表', 'pages/sys/user.html', null, '1', 'fa fa-user', '1', '0');
-INSERT INTO `sys_menu` VALUES ('3', '1', '角色管理', 'pages/sys/role.html', null, '1', 'fa fa-user-secret', '2', '0');
+INSERT INTO `sys_menu` VALUES ('2', '1', '管理员列表', 'pages/sys/user.html', null, '1', 'fa fa-user', '1', '1');
+INSERT INTO `sys_menu` VALUES ('3', '1', '角色管理', 'pages/sys/role.html', null, '1', 'fa fa-user-secret', '2', '1');
 INSERT INTO `sys_menu` VALUES ('4', '1', '菜单管理', 'pages/sys/menu.html', null, '1', 'fa fa-folder-open', '4', '0');
-INSERT INTO `sys_menu` VALUES ('5', '1', 'SQL监控', 'pages/druid/sql.html', null, '1', 'fa fa-linux', '9', '0');
-INSERT INTO `sys_menu` VALUES ('6', '1', '定时任务', 'pages/sys/schedule.html', null, '1', 'fa fa-tasks', '5', '0');
+INSERT INTO `sys_menu` VALUES ('5', '1', 'SQL监控', 'pages/druid/sql.html', null, '1', 'fa fa-linux', '9', '1');
+INSERT INTO `sys_menu` VALUES ('6', '1', '定时任务', 'pages/sys/schedule.html', null, '1', 'fa fa-tasks', '5', '1');
 INSERT INTO `sys_menu` VALUES ('7', '6', '查看', null, 'sys:schedule:list,sys:schedule:info', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('8', '6', '新增', null, 'sys:schedule:save', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('9', '6', '修改', null, 'sys:schedule:update', '2', null, '0', '0');
@@ -136,12 +139,12 @@ INSERT INTO `sys_menu` VALUES ('23', '4', '查看', null, 'sys:menu:list,sys:men
 INSERT INTO `sys_menu` VALUES ('24', '4', '新增', null, 'sys:menu:save,sys:menu:select', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('25', '4', '修改', null, 'sys:menu:update,sys:menu:select', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('26', '4', '删除', null, 'sys:menu:delete', '2', null, '0', '0');
-INSERT INTO `sys_menu` VALUES ('27', '1', '系统参数', 'pages/sys/config.html', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', 'fa fa-sun-o', '7', '0');
-INSERT INTO `sys_menu` VALUES ('28', '1', '代码生成器', 'pages/sys/generator.htmll', 'sys:generator:list,sys:generator:code', '1', 'fa fa-rocket', '10', '0');
-INSERT INTO `sys_menu` VALUES ('29', '1', '系统日志', 'pages/sys/log.htm', 'sys:log:list', '1', 'fa fa-file-text-o', '8', '0');
-INSERT INTO `sys_menu` VALUES ('30', '1', '文件上传', 'pages/sys/oss.html', 'sys:oss:all', '1', 'fa fa-file-image-o', '6', '0');
-INSERT INTO `sys_menu` VALUES ('31', '0', '功能测试', null, null, '0', 'fa fa-bug', '11', '0');
-INSERT INTO `sys_menu` VALUES ('200', '0', '用户管理', null, null, '0', 'fa fa-user-circle-o', '1', '0');
+INSERT INTO `sys_menu` VALUES ('27', '1', '系统参数', 'pages/sys/config.html', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', 'fa fa-sun-o', '7', '1');
+INSERT INTO `sys_menu` VALUES ('28', '1', '代码生成器', 'pages/sys/generator.htmll', 'sys:generator:list,sys:generator:code', '1', 'fa fa-rocket', '10', '1');
+INSERT INTO `sys_menu` VALUES ('29', '1', '系统日志', 'pages/sys/log.htm', 'sys:log:list', '1', 'fa fa-file-text-o', '8', '1');
+INSERT INTO `sys_menu` VALUES ('30', '1', '文件上传', 'pages/sys/oss.html', 'sys:oss:all', '1', 'fa fa-file-image-o', '6', '1');
+INSERT INTO `sys_menu` VALUES ('31', '0', '功能测试', null, null, '0', 'fa fa-bug', '11', '1');
+INSERT INTO `sys_menu` VALUES ('200', '0', '用户信息管理', null, null, '0', 'fa fa-user-circle-o', '1', '0');
 INSERT INTO `sys_menu` VALUES ('201', '200', '用户管理', 'pages/platform/employee.html', null, '1', 'fa fa-user-md', '1', '0');
 INSERT INTO `sys_menu` VALUES ('202', '201', '查看', null, 'user:list,user:info', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('203', '201', '新增', null, 'user:save', '2', null, '0', '0');
@@ -158,8 +161,8 @@ INSERT INTO `sys_menu` VALUES ('213', '212', '查看', null, 'address:list,addre
 INSERT INTO `sys_menu` VALUES ('214', '212', '新增', null, 'address:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('215', '212', '修改', null, 'address:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('216', '212', '删除', null, 'address:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('222', '0', '商城配置', null, null, '0', 'fa fa-shopping-cart', '2', '0');
-INSERT INTO `sys_menu` VALUES ('223', '222', '商品属性种类', 'pages/shop/attributecategory.html', null, '1', 'fa fa-sun-o', '0', '0');
+INSERT INTO `sys_menu` VALUES ('222', '0', '商户信息管理', null, null, '0', 'fa fa-shopping-cart', '2', '0');
+INSERT INTO `sys_menu` VALUES ('223', '222', '商户信息管理', 'pages/platform/merchant.html', null, '1', 'fa fa-sun-o', '0', '0');
 INSERT INTO `sys_menu` VALUES ('224', '223', '查看', null, 'attributecategory:list,attributecategory:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('225', '223', '新增', null, 'attributecategory:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('226', '223', '修改', null, 'attributecategory:update', '2', null, '6', '0');
@@ -174,7 +177,7 @@ INSERT INTO `sys_menu` VALUES ('239', '238', '查看', null, 'adposition:list,ad
 INSERT INTO `sys_menu` VALUES ('240', '238', '新增', null, 'adposition:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('241', '238', '修改', null, 'adposition:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('242', '238', '删除', null, 'adposition:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('243', '0', '推广管理', null, null, '0', 'fa fa-hand-paper-o', '5', '0');
+INSERT INTO `sys_menu` VALUES ('243', '0', '推广管理', null, null, '0', 'fa fa-hand-paper-o', '5', '1');
 INSERT INTO `sys_menu` VALUES ('244', '243', '优惠劵管理', 'pages/shop/coupon.html', null, '1', 'fa fa-cc-visa', '2', '0');
 INSERT INTO `sys_menu` VALUES ('245', '244', '查看', null, 'coupon:list,coupon:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('246', '244', '新增', null, 'coupon:save', '2', null, '6', '0');
@@ -230,7 +233,7 @@ INSERT INTO `sys_menu` VALUES ('298', '297', '查看', null, 'category:list,cate
 INSERT INTO `sys_menu` VALUES ('299', '297', '新增', null, 'category:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('300', '297', '修改', null, 'category:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('301', '297', '删除', null, 'category:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('302', '1', '通用字典表', 'pages/sys/macro.html', null, '1', 'fa fa-book', '6', '0');
+INSERT INTO `sys_menu` VALUES ('302', '1', '通用字典表', 'pages/sys/macro.html', null, '1', 'fa fa-book', '6', '1');
 INSERT INTO `sys_menu` VALUES ('303', '302', '查看', null, 'sys:macro:list,sys:macro:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('304', '302', '新增', null, 'sys:macro:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('305', '302', '修改', null, 'sys:macro:update', '2', null, '6', '0');
@@ -240,9 +243,9 @@ INSERT INTO `sys_menu` VALUES ('308', '307', '查看', null, 'channel:list,chann
 INSERT INTO `sys_menu` VALUES ('309', '307', '新增', null, 'channel:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('310', '307', '修改', null, 'channel:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('311', '307', '删除', null, 'channel:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('312', '0', '微信公众号', null, null, '0', 'fa fa-weixin', '6', '0');
-INSERT INTO `sys_menu` VALUES ('313', '0', '进销存', null, null, '0', 'fa fa-truck', '6', '0');
-INSERT INTO `sys_menu` VALUES ('314', '0', '统计报表', null, null, '0', 'fa fa-line-chart', '7', '0');
+INSERT INTO `sys_menu` VALUES ('312', '0', '微信公众号', null, null, '0', 'fa fa-weixin', '6', '1');
+INSERT INTO `sys_menu` VALUES ('313', '0', '进销存', null, null, '0', 'fa fa-truck', '6', '1');
+INSERT INTO `sys_menu` VALUES ('314', '0', '统计报表', null, null, '0', 'fa fa-line-chart', '7', '1');
 INSERT INTO `sys_menu` VALUES ('315', '222', '商品问答', 'pages/shop/goodsissue.html', null, '1', 'fa fa-question-circle-o', '6', '0');
 INSERT INTO `sys_menu` VALUES ('316', '315', '查看', null, 'goodsissue:list,goodsissue:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('317', '315', '新增', null, 'goodsissue:save', '2', null, '6', '0');
@@ -275,24 +278,23 @@ INSERT INTO `sys_menu` VALUES ('353', '352', '查看', null, 'goodsspecification
 INSERT INTO `sys_menu` VALUES ('354', '352', '新增', null, 'goodsspecification:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('355', '352', '修改', null, 'goodsspecification:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('356', '352', '删除', null, 'goodsspecification:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('357', '0', '编辑商品', null, null, '0', 'fa fa-edit', '3', '0');
+INSERT INTO `sys_menu` VALUES ('357', '0', '编辑商品', null, null, '0', 'fa fa-edit', '3', '1');
 INSERT INTO `sys_menu` VALUES ('358', '357', '商品回收站', 'pages/shop/goodshistory.html', '', '1', 'fa fa-history', '12', '0');
 INSERT INTO `sys_menu` VALUES ('359', '358', '恢复', null, 'goods:back', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('360', '294', '确认收货', null, 'order:confirm', '2', null, '0', '0');
-INSERT INTO `sys_menu` VALUES ('366', '0', 'CMS模块', null, null, '0', 'fa fa-leanpub', '6', '0');
-INSERT INTO `sys_menu` VALUES ('368', '1', '部门管理', 'pages/sys/dept.html', null, '1', 'fa fa-sitemap', '3', '0');
+INSERT INTO `sys_menu` VALUES ('366', '0', 'CMS模块', null, null, '0', 'fa fa-leanpub', '6', '1');
+INSERT INTO `sys_menu` VALUES ('368', '1', '部门管理', 'pages/sys/dept.html', null, '1', 'fa fa-sitemap', '3', '1');
 INSERT INTO `sys_menu` VALUES ('369', '368', '查看', null, 'sys:dept:list,sys:dept:info', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('370', '368', '新增', null, 'sys:dept:save', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('371', '368', '修改', null, 'sys:dept:update', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('372', '368', '删除', null, 'sys:dept:delete', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('373', '368', '选择部门', null, 'sys:dept:select', '2', null, '0', '0');
-INSERT INTO `sys_menu` VALUES ('374', '0', '订单管理', null, null, '0', 'fa fa-first-order', '4', '0');
-INSERT INTO `sys_menu` VALUES ('375', '0', '短信平台', null, null, '0', 'fa fa-television', '9', '0');
+INSERT INTO `sys_menu` VALUES ('374', '0', '订单管理', null, null, '0', 'fa fa-first-order', '4', '1');
+INSERT INTO `sys_menu` VALUES ('375', '0', '短信平台', null, null, '0', 'fa fa-television', '9', '1');
 INSERT INTO `sys_menu` VALUES ('376', '375', '短信配置', 'pages/sys/smslog.html', 'sys:smslog:list,sys:smslog:info', '1', 'fa fa-envelope-open', '1', '0');
-INSERT INTO `sys_menu` VALUES ('377', '1', '地区管理', 'pages/sys/region.html', null, '1', 'fa fa-map-pin', '8', '0');
+INSERT INTO `sys_menu` VALUES ('377', '1', '地区管理', 'pages/sys/region.html', null, '1', 'fa fa-map-pin', '8', '1');
 INSERT INTO `sys_menu` VALUES ('378', '377', '删除', null, 'sys:region:delete', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('379', '377', '修改', '', 'sys:region:update', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('380', '377', '新增', null, 'sys:region:save', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('381', '377', '查看', null, 'sys:region:list,sys:region:info', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('382', '31', 'swagger-ui.html', 'swagger-ui.html', '', '1', 'fa fa-code', '0', '0');
-INSERT INTO `sys_menu` VALUES ('383', '0', '兼职信息管理', 'pages/shop/recuitment.html', '', '1', 'fa fa-wpforms', '0', '0');

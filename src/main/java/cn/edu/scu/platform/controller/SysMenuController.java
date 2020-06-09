@@ -10,11 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -44,8 +40,8 @@ public class SysMenuController {
 
     // TODO: 2020/6/7 管理菜单 
     @RequestMapping("/all")
-    public Map<String,Object> all(){
-        List<SysMenu> list = sysMenuService.getAllMenuList();
+    public Map<String,Object> all(@RequestParam Map<String, Object> params){
+        List<SysMenu> list = sysMenuService.queryList(params);
         return R.ok().put("list",list);
     }
 

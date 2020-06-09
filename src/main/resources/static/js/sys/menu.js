@@ -142,7 +142,7 @@ var vm = new Vue({
         getMenu: function (menuId) {
             //加载菜单树
             Ajax.request({
-                url: "../sys/menu/select",
+                url: "/sysMenu/select",
                 async: true,
                 successCallback: function (r) {
                     ztree = $.fn.zTree.init($("#menuTree"), setting, r.menuList);
@@ -177,7 +177,7 @@ var vm = new Vue({
             }
 
             Ajax.request({
-                url: "../sys/menu/info/" + menuId[0].id,
+                url: "/sysMenu/info/" + menuId[0].id,
                 async: true,
                 successCallback: function (r) {
                     vm.showList = false;
@@ -200,7 +200,7 @@ var vm = new Vue({
                     ids[idx] = item.id;
                 });
                 Ajax.request({
-                    url: "../sys/menu/delete",
+                    url: "/sysMenu/delete",
                     params: JSON.stringify(ids),
                     contentType: "application/json",
                     type: 'POST',
@@ -213,7 +213,7 @@ var vm = new Vue({
             });
         },
         saveOrUpdate: function (event) {
-            var url = vm.menu.menuId == null ? "../sys/menu/save" : "../sys/menu/update";
+            var url = vm.menu.menuId == null ? "/sysMenu/save" : "/sysMenu/update";
             Ajax.request({
                 url: url,
                 params: JSON.stringify(vm.menu),
