@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2020-06-09 15:51:11
+Date: 2020-06-09 23:09:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,6 +35,87 @@ CREATE TABLE `account` (
 -- Records of account
 -- ----------------------------
 INSERT INTO `account` VALUES ('1', '1', '1', '1', '1', '1', '1', '1');
+
+-- ----------------------------
+-- Table structure for city
+-- ----------------------------
+DROP TABLE IF EXISTS `city`;
+CREATE TABLE `city` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(2) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `prov_city` (`parent_id`),
+  CONSTRAINT `prov_city` FOREIGN KEY (`parent_id`) REFERENCES `province` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of city
+-- ----------------------------
+INSERT INTO `city` VALUES ('1', '1', '成都市');
+INSERT INTO `city` VALUES ('2', '1', '绵阳市');
+INSERT INTO `city` VALUES ('3', '1', '自贡市');
+INSERT INTO `city` VALUES ('4', '1', '攀枝花市');
+INSERT INTO `city` VALUES ('5', '1', '泸州市');
+INSERT INTO `city` VALUES ('6', '1', '德阳市');
+INSERT INTO `city` VALUES ('7', '1', '广元市');
+INSERT INTO `city` VALUES ('8', '1', '遂宁市');
+INSERT INTO `city` VALUES ('9', '1', '内江市');
+INSERT INTO `city` VALUES ('10', '1', '乐山市');
+INSERT INTO `city` VALUES ('11', '1', '资阳市');
+INSERT INTO `city` VALUES ('12', '1', '宜宾市');
+INSERT INTO `city` VALUES ('13', '1', '南充市');
+INSERT INTO `city` VALUES ('14', '1', '达州市');
+INSERT INTO `city` VALUES ('15', '1', '雅安市');
+INSERT INTO `city` VALUES ('16', '1', '广安市');
+INSERT INTO `city` VALUES ('17', '1', '巴中市');
+INSERT INTO `city` VALUES ('18', '1', '眉山市');
+INSERT INTO `city` VALUES ('19', '2', '贵阳市');
+INSERT INTO `city` VALUES ('20', '2', '遵义市');
+INSERT INTO `city` VALUES ('21', '2', '安顺市');
+INSERT INTO `city` VALUES ('22', '2', '六盘水市');
+INSERT INTO `city` VALUES ('23', '2', '毕节市');
+INSERT INTO `city` VALUES ('24', '2', '铜仁市');
+INSERT INTO `city` VALUES ('25', '2', '清镇市');
+INSERT INTO `city` VALUES ('26', '2', '赤水市');
+INSERT INTO `city` VALUES ('27', '2', '仁怀市');
+INSERT INTO `city` VALUES ('28', '2', '盘州市');
+INSERT INTO `city` VALUES ('29', '2', '凯里市');
+INSERT INTO `city` VALUES ('30', '2', '都匀市');
+INSERT INTO `city` VALUES ('31', '2', '福泉市');
+INSERT INTO `city` VALUES ('32', '2', '兴义市');
+
+-- ----------------------------
+-- Table structure for distribution
+-- ----------------------------
+DROP TABLE IF EXISTS `distribution`;
+CREATE TABLE `distribution` (
+  `id` int(5) NOT NULL,
+  `totalNum` int(5) NOT NULL,
+  `position_id` int(2) NOT NULL,
+  `position_name` varchar(64) NOT NULL,
+  `city_id` int(2) NOT NULL,
+  `city_name` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `category` (`position_id`),
+  KEY `city` (`city_id`),
+  CONSTRAINT `category` FOREIGN KEY (`position_id`) REFERENCES `position` (`id`),
+  CONSTRAINT `city` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of distribution
+-- ----------------------------
+INSERT INTO `distribution` VALUES ('1', '34', '12', '视频剪辑', '1', '成都');
+INSERT INTO `distribution` VALUES ('2', '9', '12', '视频剪辑', '10', '乐山');
+INSERT INTO `distribution` VALUES ('3', '27', '19', '摄影', '1', '成都');
+INSERT INTO `distribution` VALUES ('4', '11', '19', '摄影', '10', '乐山');
+INSERT INTO `distribution` VALUES ('5', '46', '18', '翻译', '1', '成都');
+INSERT INTO `distribution` VALUES ('6', '20', '18', '翻译', '10', '乐山');
+INSERT INTO `distribution` VALUES ('7', '42', '13', '网站建设', '1', '成都');
+INSERT INTO `distribution` VALUES ('8', '7', '13', '网站建设', '10', '乐山');
+INSERT INTO `distribution` VALUES ('9', '35', '6', '健身教练', '1', '成都');
+INSERT INTO `distribution` VALUES ('10', '17', '6', '健身教练', '10', '乐山');
 
 -- ----------------------------
 -- Table structure for employee
@@ -75,6 +156,58 @@ CREATE TABLE `merchant` (
 INSERT INTO `merchant` VALUES ('1', null, null, null, null, null, null, null);
 
 -- ----------------------------
+-- Table structure for position
+-- ----------------------------
+DROP TABLE IF EXISTS `position`;
+CREATE TABLE `position` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(2) DEFAULT NULL,
+  `name` varchar(64) NOT NULL,
+  `sort` int(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of position
+-- ----------------------------
+INSERT INTO `position` VALUES ('1', null, '服务行业', '1');
+INSERT INTO `position` VALUES ('2', null, '设计师', '3');
+INSERT INTO `position` VALUES ('3', null, 'IT行业', '4');
+INSERT INTO `position` VALUES ('4', null, '专业人才', '2');
+INSERT INTO `position` VALUES ('5', '1', '护工', '1');
+INSERT INTO `position` VALUES ('6', '1', '健身教练', '3');
+INSERT INTO `position` VALUES ('7', '1', '导游', '4');
+INSERT INTO `position` VALUES ('8', '1', '化妆师', '2');
+INSERT INTO `position` VALUES ('9', '2', '美工', '1');
+INSERT INTO `position` VALUES ('10', '2', '平面设计', '3');
+INSERT INTO `position` VALUES ('11', '2', '图片处理', '4');
+INSERT INTO `position` VALUES ('12', '2', '视频剪辑', '2');
+INSERT INTO `position` VALUES ('13', '3', '网站建设', '1');
+INSERT INTO `position` VALUES ('14', '3', 'App开发', '3');
+INSERT INTO `position` VALUES ('15', '3', 'SEO优化', '4');
+INSERT INTO `position` VALUES ('16', '3', '网络维修', '2');
+INSERT INTO `position` VALUES ('17', '4', '会计', '1');
+INSERT INTO `position` VALUES ('18', '4', '翻译', '3');
+INSERT INTO `position` VALUES ('19', '4', '摄影', '4');
+INSERT INTO `position` VALUES ('20', '4', '律师', '2');
+
+-- ----------------------------
+-- Table structure for province
+-- ----------------------------
+DROP TABLE IF EXISTS `province`;
+CREATE TABLE `province` (
+  `id` int(2) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of province
+-- ----------------------------
+INSERT INTO `province` VALUES ('1', '四川');
+INSERT INTO `province` VALUES ('2', '贵州');
+
+-- ----------------------------
 -- Table structure for recruitment
 -- ----------------------------
 DROP TABLE IF EXISTS `recruitment`;
@@ -108,7 +241,7 @@ CREATE TABLE `sys_menu` (
   `order_num` int(11) DEFAULT NULL COMMENT '排序',
   `status` int(1) DEFAULT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=384 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
+) ENGINE=InnoDB AUTO_INCREMENT=387 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -245,7 +378,7 @@ INSERT INTO `sys_menu` VALUES ('310', '307', '修改', null, 'channel:update', '
 INSERT INTO `sys_menu` VALUES ('311', '307', '删除', null, 'channel:delete', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('312', '0', '微信公众号', null, null, '0', 'fa fa-weixin', '6', '1');
 INSERT INTO `sys_menu` VALUES ('313', '0', '进销存', null, null, '0', 'fa fa-truck', '6', '1');
-INSERT INTO `sys_menu` VALUES ('314', '0', '统计报表', null, null, '0', 'fa fa-line-chart', '7', '1');
+INSERT INTO `sys_menu` VALUES ('314', '0', '统计报表', null, null, '0', 'fa fa-line-chart', '7', '0');
 INSERT INTO `sys_menu` VALUES ('315', '222', '商品问答', 'pages/shop/goodsissue.html', null, '1', 'fa fa-question-circle-o', '6', '0');
 INSERT INTO `sys_menu` VALUES ('316', '315', '查看', null, 'goodsissue:list,goodsissue:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('317', '315', '新增', null, 'goodsissue:save', '2', null, '6', '0');
@@ -298,3 +431,4 @@ INSERT INTO `sys_menu` VALUES ('379', '377', '修改', '', 'sys:region:update', 
 INSERT INTO `sys_menu` VALUES ('380', '377', '新增', null, 'sys:region:save', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('381', '377', '查看', null, 'sys:region:list,sys:region:info', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('382', '31', 'swagger-ui.html', 'swagger-ui.html', '', '1', 'fa fa-code', '0', '0');
+INSERT INTO `sys_menu` VALUES ('384', '314', '流量统计', 'pages/platform/position_status.html', null, '1', null, '1', '0');
