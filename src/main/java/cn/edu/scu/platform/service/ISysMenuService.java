@@ -17,4 +17,11 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     List<SysMenu> getAllMenuList();
 
+    List<SysMenu> queryNotButtonList();
+
+    SysMenu queryObject(Long menuId);
+
+    void deleteBatch(Long[] menuIds);
+
+    void update(SysMenu menu);
 }

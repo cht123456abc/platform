@@ -5,11 +5,12 @@ import cn.edu.scu.platform.mapper.SysMenuMapper;
 import cn.edu.scu.platform.service.ISysMenuService;
 import cn.edu.scu.platform.utils.Constant;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -61,5 +62,30 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
         return subMenuList;
     }
+
+
+
+    
+    @Override
+    public List<SysMenu> queryNotButtonList() {
+        return baseMapper.queryNotButtonList();
+    }
+
+    @Override
+    public SysMenu queryObject(Long menuId) {
+        return baseMapper.queryObject(menuId);
+    }
+
+    @Override
+    public void update(SysMenu menu) {
+        baseMapper.update(menu);
+    }
+
+    @Override
+    @Transactional
+    public void deleteBatch(Long[] menuIds) {
+        baseMapper.deleteBatch(menuIds);
+    }
+
 
 }

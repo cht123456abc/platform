@@ -11,7 +11,7 @@ function initialPage() {
 
 function getGrid() {
     var colunms = TreeGrid.initColumn();
-    var table = new TreeTable(TreeGrid.id, '../sys/menu/queryAll', colunms);
+    var table = new TreeTable(TreeGrid.id, '/sysMenu/all', colunms);
     table.setExpandColumn(2);
     table.setIdField("menuId");
     table.setCodeField("menuId");

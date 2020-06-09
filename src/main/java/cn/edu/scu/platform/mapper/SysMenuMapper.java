@@ -16,4 +16,12 @@ import java.util.List;
 public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     List<SysMenu> queryListByParentId(Long parentId);
+
+    List<SysMenu> queryNotButtonList();
+
+    SysMenu queryObject(Long menuId);
+
+    void deleteBatch(Long[] menuIds);
+
+    void update(SysMenu menu);
 }
