@@ -8,4 +8,10 @@
         from admin
         where `username` = #{username}
     </select>
+
+    <update id="changePassword">
+        update admin
+        set `password` = #{password}
+        where `username` = #{username}
+    </update>
 </mapper>

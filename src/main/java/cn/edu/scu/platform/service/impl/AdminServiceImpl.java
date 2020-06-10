@@ -21,4 +21,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     public String findPassword(String username) {
         return baseMapper.findPassword(username);
     }
+
+    @Override
+    public boolean changePassword(String username, String newPassword) {
+        return baseMapper.changePassword(username,newPassword);
+    }
 }
