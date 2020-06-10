@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
     Logger Log = LoggerFactory.getLogger(IndexController.class);
 
-        @RequestMapping({"/"," "})
-        public String index() {
-            Log.info("返回起始页面");
-            return "index";
+        @RequestMapping({"/",""})
+        public String login() {
+            Log.info("返回登录页面");
+            return "login";
         }
 
+        @RequestMapping("/index")
+        public String index() {
+            Log.info("返回管理页面");
+            return "index";
+        }
 
 }

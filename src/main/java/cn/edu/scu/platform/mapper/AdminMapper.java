@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 
 public interface AdminMapper extends BaseMapper<Admin> {
+    String findPassword(String username);
 }

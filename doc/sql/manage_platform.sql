@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2020-06-09 23:09:47
+Date: 2020-06-10 13:42:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,12 +29,29 @@ CREATE TABLE `account` (
   `detail` varchar(255) DEFAULT NULL,
   `gender` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of account
 -- ----------------------------
-INSERT INTO `account` VALUES ('1', '1', '1', '1', '1', '1', '1', '1');
+INSERT INTO `account` VALUES ('2', '1', '1', '1', '1', '1', '1', '1');
+
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` bigint(20) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `detail` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+INSERT INTO `admin` VALUES ('1', 'admin', 'admin', 'admin', 'admin');
 
 -- ----------------------------
 -- Table structure for city
@@ -153,7 +170,7 @@ CREATE TABLE `merchant` (
 -- ----------------------------
 -- Records of merchant
 -- ----------------------------
-INSERT INTO `merchant` VALUES ('1', null, null, null, null, null, null, null);
+INSERT INTO `merchant` VALUES ('2', null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for position

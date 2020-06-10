@@ -17,4 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements IAdminService {
 
+    @Override
+    public String findPassword(String username) {
+        return baseMapper.findPassword(username);
+    }
 }

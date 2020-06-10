@@ -12,7 +12,7 @@ public class Admin {
     private static final long serialVersionUID = 1L;
     @TableId(type = IdType.AUTO)
     private Long id;
-    private String account;
+    private String username;
     private String password;
     private String name;
     private String detail;
