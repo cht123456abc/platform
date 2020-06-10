@@ -160,7 +160,7 @@ CREATE TABLE `merchant` (
   `checked` int(11) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `registered_capital` varchar(255) DEFAULT NULL,
-  `initial_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `initial_date` datetime DEFAULT NULL,
   `registered_address` varchar(255) DEFAULT NULL,
   `business_scope` varchar(255) DEFAULT NULL,
   `score` int(11) DEFAULT NULL,
