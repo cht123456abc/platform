@@ -13,4 +13,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface RecruitmentMapper extends BaseMapper<Recruitment> {
 
+	void deleteByIds(Long[] ids);
+
 }

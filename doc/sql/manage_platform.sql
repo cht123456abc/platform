@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2020-06-10 13:42:54
+Date: 2020-06-10 22:07:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,12 +29,13 @@ CREATE TABLE `account` (
   `detail` varchar(255) DEFAULT NULL,
   `gender` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of account
 -- ----------------------------
 INSERT INTO `account` VALUES ('2', '1', '1', '1', '1', '1', '1', '1');
+INSERT INTO `account` VALUES ('3', '1', '1', '1', '1', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for admin
@@ -150,6 +151,7 @@ CREATE TABLE `employee` (
 -- ----------------------------
 -- Records of employee
 -- ----------------------------
+INSERT INTO `employee` VALUES ('3', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for merchant
@@ -258,7 +260,7 @@ CREATE TABLE `sys_menu` (
   `order_num` int(11) DEFAULT NULL COMMENT '排序',
   `status` int(1) DEFAULT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=387 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
+) ENGINE=InnoDB AUTO_INCREMENT=389 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -449,3 +451,5 @@ INSERT INTO `sys_menu` VALUES ('380', '377', '新增', null, 'sys:region:save', 
 INSERT INTO `sys_menu` VALUES ('381', '377', '查看', null, 'sys:region:list,sys:region:info', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('382', '31', 'swagger-ui.html', 'swagger-ui.html', '', '1', 'fa fa-code', '0', '0');
 INSERT INTO `sys_menu` VALUES ('384', '314', '流量统计', 'pages/platform/position_status.html', null, '1', null, '1', '0');
+INSERT INTO `sys_menu` VALUES ('387', '0', '招聘管理', null, null, '0', 'fa fa-user-md', '4', '0');
+INSERT INTO `sys_menu` VALUES ('388', '387', '招聘管理', 'pages/platform/recruitment.html', null, '1', '', '4', '0');

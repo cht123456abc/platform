@@ -13,4 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IRecruitmentService extends IService<Recruitment> {
 
+	void deleteByIds(Long[] ids);
+
 }
