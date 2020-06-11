@@ -170,7 +170,6 @@ CREATE TABLE `merchant` (
   `score` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- ----------------------------
 -- Records of merchant
 -- ----------------------------

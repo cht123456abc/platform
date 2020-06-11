@@ -72,36 +72,36 @@
             <Form-item label="备注" prop="detail">
                 <i-input v-model="merchant.account.detail" placeholder="备注"/>
             </Form-item>
-            <!--<Form-item label="待审核" prop="checked">-->
-                <!--<Radio-group v-model="merchant.account.checked">-->
-                    <!--<Radio label="1">-->
-                        <!--<span>是</span>-->
-                    <!--</Radio>-->
-                    <!--<Radio label="2">-->
-                        <!--<span>否</span>-->
-                    <!--</Radio>-->
-                <!--</Radio-group>-->
-            <!--</Form-item>-->
-            <!--<Form-item label="商户类型" prop="type">-->
-                <!--<i-input v-model="merchant.account.type" placeholder="类型"/>-->
-            <!--</Form-item>-->
-            <!--<Form-item label="注册资本" prop="registeredCapital">-->
-                <!--<i-input v-model="merchant.account.registeredCapital" placeholder="注册资本"/>-->
-            <!--</Form-item>-->
-            <!--<Form-item label="注册日期" prop="initialDate">-->
-                <!--<i-input v-model="merchant.account.initialDate" placeholder="注册日期"/>-->
-            <!--</Form-item>-->
+            <Form-item label="待审核" prop="checked">
+                <Radio-group v-model="merchant.account.checked">
+                    <Radio label="1">
+                        <span>是</span>
+                    </Radio>
+                    <Radio label="2">
+                        <span>否</span>
+                    </Radio>
+                </Radio-group>
+            </Form-item>
+            <Form-item label="商户类型" prop="type">
+                <i-input v-model="merchant.account.type" placeholder="类型"/>
+            </Form-item>
+            <Form-item label="注册资本" prop="registeredCapital">
+                <i-input v-model="merchant.account.registeredCapital" placeholder="注册资本"/>
+            </Form-item>
+            <Form-item label="注册日期" prop="initialDate">
+                <i-input v-model="merchant.account.initialDate" placeholder="注册日期"/>
+            </Form-item>
 
 
-            <!--<Form-item label="注册地址" prop="registeredAddress">-->
-                <!--<i-input v-model="merchant.account.registeredAddress" placeholder="注册地址"/>-->
-            <!--</Form-item>-->
-            <!--<Form-item label="业务范围" prop="businessScope">-->
-                <!--<i-input v-model="merchant.account.businessScope" placeholder="业务范围"/>-->
-            <!--</Form-item>-->
-            <!--<Form-item label="评分" prop="score">-->
-                <!--<i-input v-model="merchant.account.score" placeholder="评分"/>-->
-            <!--</Form-item>-->
+            <Form-item label="注册地址" prop="registeredAddress">
+                <i-input v-model="merchant.account.registeredAddress" placeholder="注册地址"/>
+            </Form-item>
+            <Form-item label="业务范围" prop="businessScope">
+                <i-input v-model="merchant.account.businessScope" placeholder="业务范围"/>
+            </Form-item>
+            <Form-item label="评分" prop="score">
+                <i-input v-model="merchant.account.score" placeholder="评分"/>
+            </Form-item>
                 <Form-item>
                 <i-button type="primary" @click="handleSubmit('formValidate')">提交</i-button>
                 <i-button type="warning" @click="reload" style="margin-left: 8px"/>
