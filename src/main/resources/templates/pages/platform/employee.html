@@ -46,8 +46,8 @@
             <Form-item label="用户密码" prop="password">
                 <i-input v-model="employee.account.password" placeholder="密码"/>
             </Form-item>
-            <Form-item label="名字" prop="name">
-                <i-input v-model="employee.account.name" placeholder="名字"/>
+            <Form-item label="姓名" prop="name">
+                <i-input v-model="employee.account.name" placeholder="姓名"/>
             </Form-item>
 
             <Form-item label="性别" prop="gender">
@@ -72,6 +72,19 @@
             <Form-item label="备注" prop="detail">
                 <i-input v-model="employee.account.detail" placeholder="备注"/>
             </Form-item>
+            <Form-item label="目标职位" prop="intendedOccupation">
+                <i-input v-model="employee.intendedOccupation" placeholder="目标职位"/>
+            </Form-item>
+            <Form-item label="收藏职位" prop="vocationCollection">
+                <i-input v-model="employee.vocationCollection" placeholder="收藏职位"/>
+            </Form-item>
+            <Form-item label="收藏商家" prop="merchantCollection">
+                <i-input v-model="employee.merchantCollection" placeholder="收藏商家"/>
+            </Form-item>
+            <Form-item label="简历" prop="resume">
+                <i-input v-model="employee.resume" placeholder="简历"/>
+            </Form-item>
+
 <!--            <Form-item label="出生日期" prop="birthday">-->
 <!--                <Date-picker v-model="user.birthday" placeholder="出生日期"></Date-picker>-->
 <!--            </Form-item>-->

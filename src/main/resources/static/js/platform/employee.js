@@ -4,27 +4,27 @@ $(function () {
         colModel: [{
             label: 'id', name: 'id', index: 'id', key: true, hidden: true},
             {
-            label: '用户名称', name: 'account.account', index: 'account.account', width: 80
+            label: '用户名称', name: 'account.account', index: 'account.account', width: 80, hidden: true
         }, {
             label: '用户密码', name: 'account.password', index: 'account.password', hidden: true
         },{
-            label: '名字', name: 'account.name', index: 'account.name', width: 80
+            label: '姓名', name: 'account.name', index: 'account.name', width: 30
         }, {
-            label: '性别', name: 'account.gender', index: 'account.gender', width: 40, formatter: function (value) {
+            label: '性别', name: 'account.gender', index: 'account.gender', width: 20, formatter: function (value) {
                 return transGender(value);
             }
         }, {
-            label: '手机号码', name: 'account.phoneNumber', index: 'account.phoneNumber', width: 120
+            label: '手机号码', name: 'account.phoneNumber', index: 'account.phoneNumber', width: 50
         },{
-            label:'年龄', name: 'account.age', index: 'account.age',width: 80
+            label:'年龄', name: 'account.age', index: 'account.age',width: 30
         },{
             label: '备注',name: 'account.detail',index: 'account.detail',width: 120
         },{
-            label:'目标职位',name: 'intendedOccupation',index: 'intendedOccupation',width: 80
+            label:'目标职位',name: 'intendedOccupation',index: 'intendedOccupation',width: 120
         },{
-            label: '收藏职位',name: 'vocationCollection',index:'vocationCollection',width: 80
+            label: '收藏职位',name: 'vocationCollection',index:'vocationCollection',width: 120
         },{
-            label: '收藏商家',name: 'merchantCollection',index: 'merchantCollection',width: 80
+            label: '收藏商家',name: 'merchantCollection',index: 'merchantCollection',width: 120
         },{
             label: '简历',name: 'resume',index: 'resume',width: 120
         }]

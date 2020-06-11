@@ -105,14 +105,13 @@ public class EmployeeController {
         Account account = employee.getAccount();
         if (accountService.updateById(account)) {
             Log.info("更新账号成功");
-//            if (employeeService.updateById(employee)) {
-//                Log.info("更新用户成功");
-//                return R.ok();
-//            } else {
-//                Log.info("更新用户失败");
-//                return R.error("更新用户失败");
-//            }
-            return R.ok();
+            if (employeeService.updateById(employee)) {
+                Log.info("更新用户成功");
+                return R.ok();
+            } else {
+                Log.info("更新用户失败");
+                return R.error("更新用户失败");
+            }
         } else {
             Log.info("更新账号失败");
             return R.error("更新账号失败");
