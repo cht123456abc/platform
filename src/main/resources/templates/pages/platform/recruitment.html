@@ -28,23 +28,23 @@
     <Card v-show="!showList">
         <p slot="title">{{title}}</p>
         <i-form ref="formValidate" :model="recruitment"  :label-width="80">
-            <Form-item label="招聘标题" prop="title">
+            <Form-item label="标题" prop="title">
                 <i-input v-model="recruitment.title" placeholder="招聘标题"/>
             </Form-item>
-            <Form-item label="选择" prop="checked">
-                <i-input v-model="recruitment.checked" placeholder="选择"/>
+            <Form-item label="岗位" prop="vocation">
+                <i-input v-model="recruitment.vocation" placeholder="职位"/>
             </Form-item>
-            <Form-item label="商人ID" prop="checked">
-                <i-input v-model="recruitment.merchantId" placeholder="商人ID"/>
-            </Form-item>
-            <Form-item label="价格" prop="salary">
-                <i-input v-model="recruitment.salary" placeholder="价格"/>
+            <Form-item label="薪资" prop="salary">
+                <i-input v-model="recruitment.salary" placeholder="薪资"/>
             </Form-item>
             <Form-item label="详情" prop="detail">
                 <i-input v-model="recruitment.detail" placeholder="详情"/>
             </Form-item>
-            <Form-item label="地址" prop="vocation">
-                <i-input v-model="recruitment.vocation" placeholder="地址"/>
+            <Form-item label="商户ID" prop="checked" >
+                <i-input v-model="recruitment.merchantId" placeholder="商户ID"/>
+            </Form-item>
+            <Form-item label="是否已审核" prop="checked">
+                <i-input v-model="recruitment.checked" placeholder="选择"/>
             </Form-item>
             <Form-item>
                 <i-button type="primary" @click="handleSubmit('formValidate')">提交</i-button>

@@ -4,15 +4,17 @@ $(function () {
         colModel: [{
             label: 'id', name: 'id', index: 'id', key: true, hidden: true
         }, {
-            label: '商人ID', name: 'merchantId', index: 'merchant_id', width: 80
-        }, {
-            label: 'checked', name: 'checked', index: 'checked'
+            label: '商人ID', name: 'merchantId', index: 'merchant_id', width: 80,hidden:true
         }, {
             label: '标题', name: 'title', index: 'title'
+        },{
+            label: '岗位', name: 'vocation', index: 'vocation'
         }, {
-            label: '备注', name: 'detail', index: 'detail'
+            label: '薪资', name: 'salary', index: 'salary'
+        },{
+            label: '详情', name: 'detail', index: 'detail'
         }, {
-            label: '地址', name: 'vocation', index: 'vocation'
+            label: '是否已审核', name: 'checked', index: 'checked'
         }]
     });
 });

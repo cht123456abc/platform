@@ -27,6 +27,9 @@ public class Recruitment implements Serializable {
 
     private Long merchantId;
 
+    /**
+     * 是否已审核 0-未审核 1-已审核
+     */
     private Integer checked;
 
     private String title;
