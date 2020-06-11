@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2020-06-11 14:41:42
+Date: 2020-06-11 15:17:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,14 +29,14 @@ CREATE TABLE `account` (
   `detail` varchar(255) DEFAULT NULL,
   `gender` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of account
 -- ----------------------------
 INSERT INTO `account` VALUES ('2', '1', '1', '1', '1', '1', '1', '1');
-INSERT INTO `account` VALUES ('3', '1', '1', '1', '1', '1', '1', '1');
-INSERT INTO `account` VALUES ('4', '2', '2', '2', '2', '2', '2', '1');
+INSERT INTO `account` VALUES ('3', 'cht123', '123456', '呵呵哒', '12', '13980237335', '13980237335', '1');
+INSERT INTO `account` VALUES ('5', 'cht123', '123456', '哇哈哈', '12', '13980237445', '13980237335', '1');
 
 -- ----------------------------
 -- Table structure for admin
@@ -152,8 +152,8 @@ CREATE TABLE `employee` (
 -- ----------------------------
 -- Records of employee
 -- ----------------------------
-INSERT INTO `employee` VALUES ('3', null, null, null, null);
-INSERT INTO `employee` VALUES ('4', null, null, null, null);
+INSERT INTO `employee` VALUES ('3', 'python工程师', 'java工程师，python工程师', '阿里巴巴，腾讯', 'resume');
+INSERT INTO `employee` VALUES ('5', '健身教练', '健身教练，推销员', '睿士堡健身', 'resume');
 
 -- ----------------------------
 -- Table structure for merchant
@@ -299,8 +299,8 @@ INSERT INTO `sys_menu` VALUES ('28', '1', '代码生成器', 'pages/sys/generato
 INSERT INTO `sys_menu` VALUES ('29', '1', '系统日志', 'pages/sys/log.htm', 'sys:log:list', '1', 'fa fa-file-text-o', '8', '1');
 INSERT INTO `sys_menu` VALUES ('30', '1', '文件上传', 'pages/sys/oss.html', 'sys:oss:all', '1', 'fa fa-file-image-o', '6', '1');
 INSERT INTO `sys_menu` VALUES ('31', '0', '功能测试', null, null, '0', 'fa fa-bug', '11', '1');
-INSERT INTO `sys_menu` VALUES ('200', '0', '用户信息管理', null, null, '0', 'fa fa-user-circle-o', '1', '0');
-INSERT INTO `sys_menu` VALUES ('201', '200', '用户管理', 'pages/platform/employee.html', null, '1', 'fa fa-user-md', '1', '0');
+INSERT INTO `sys_menu` VALUES ('200', '0', '兼职者信息管理', null, null, '0', 'fa fa-user-circle-o', '1', '0');
+INSERT INTO `sys_menu` VALUES ('201', '200', '兼职者管理', 'pages/platform/employee.html', null, '1', 'fa fa-user-md', '1', '0');
 INSERT INTO `sys_menu` VALUES ('202', '201', '查看', null, 'user:list,user:info', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('203', '201', '新增', null, 'user:save', '2', null, '0', '0');
 INSERT INTO `sys_menu` VALUES ('204', '201', '修改', null, 'user:update', '2', null, '0', '0');
@@ -311,7 +311,7 @@ INSERT INTO `sys_menu` VALUES ('208', '207', '查看', null, 'userlevel:list,use
 INSERT INTO `sys_menu` VALUES ('209', '207', '新增', null, 'userlevel:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('210', '207', '修改', null, 'userlevel:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('211', '207', '删除', null, 'userlevel:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('212', '200', '收货地址管理', 'pages/shop/address.html', null, '1', 'fa fa-map-marker', '6', '0');
+INSERT INTO `sys_menu` VALUES ('212', '200', '收货地址管理', 'pages/shop/address.html', null, '1', 'fa fa-map-marker', '6', '1');
 INSERT INTO `sys_menu` VALUES ('213', '212', '查看', null, 'address:list,address:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('214', '212', '新增', null, 'address:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('215', '212', '修改', null, 'address:update', '2', null, '6', '0');
@@ -338,22 +338,22 @@ INSERT INTO `sys_menu` VALUES ('245', '244', '查看', null, 'coupon:list,coupon
 INSERT INTO `sys_menu` VALUES ('246', '244', '新增', null, 'coupon:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('247', '244', '修改', null, 'coupon:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('248', '244', '删除', null, 'coupon:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('249', '200', '会员优惠劵', 'pages/shop/usercoupon.html', null, '1', 'fa fa-cc-visa', '2', '0');
+INSERT INTO `sys_menu` VALUES ('249', '200', '会员优惠劵', 'pages/shop/usercoupon.html', null, '1', 'fa fa-cc-visa', '2', '1');
 INSERT INTO `sys_menu` VALUES ('250', '249', '查看', null, 'usercoupon:list,usercoupon:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('251', '249', '新增', null, 'usercoupon:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('252', '249', '修改', null, 'usercoupon:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('253', '249', '删除', null, 'usercoupon:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('254', '222', '品牌制造商', 'pages/shop/brand.html', null, '1', 'fa fa-registered', '5', '0');
+INSERT INTO `sys_menu` VALUES ('254', '222', '品牌制造商', 'pages/shop/brand.html', null, '1', 'fa fa-registered', '5', '1');
 INSERT INTO `sys_menu` VALUES ('255', '254', '查看', null, 'brand:list,brand:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('256', '254', '新增', null, 'brand:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('257', '254', '修改', null, 'brand:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('258', '254', '删除', null, 'brand:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('259', '222', '商品规格', 'pages/shop/specification.html', null, '1', 'fa fa-hand-rock-o', '1', '0');
+INSERT INTO `sys_menu` VALUES ('259', '222', '商品规格', 'pages/shop/specification.html', null, '1', 'fa fa-hand-rock-o', '1', '1');
 INSERT INTO `sys_menu` VALUES ('260', '259', '查看', null, 'specification:list,specification:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('261', '259', '新增', null, 'specification:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('262', '259', '修改', null, 'specification:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('263', '259', '删除', null, 'specification:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('264', '200', '会员收藏', 'pages/shop/collect.html', null, '1', 'fa fa-star', '3', '0');
+INSERT INTO `sys_menu` VALUES ('264', '200', '兼职者收藏', 'pages/shop/collect.html', null, '1', 'fa fa-star', '3', '0');
 INSERT INTO `sys_menu` VALUES ('265', '264', '查看', null, 'collect:list,collect:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('266', '264', '删除', null, 'collect:delete', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('270', '243', '专题管理', 'pages/shop/topic.html', null, '1', 'fa fa-ticket', '5', '1');
@@ -366,13 +366,13 @@ INSERT INTO `sys_menu` VALUES ('276', '275', '查看', null, 'topiccategory:list
 INSERT INTO `sys_menu` VALUES ('277', '275', '新增', null, 'topiccategory:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('278', '275', '修改', null, 'topiccategory:update', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('279', '275', '删除', null, 'topiccategory:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('280', '200', '会员足迹', 'pages/shop/footprint.html', null, '1', 'fa fa-history', '6', '0');
+INSERT INTO `sys_menu` VALUES ('280', '200', '兼职者足迹', 'pages/shop/footprint.html', null, '1', 'fa fa-history', '6', '0');
 INSERT INTO `sys_menu` VALUES ('281', '280', '查看', null, 'footprint:list,footprint:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('282', '280', '删除', null, 'footprint:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('283', '200', '搜索历史', 'pages/shop/searchhistory.html', null, '1', 'fa fa-search', '6', '0');
+INSERT INTO `sys_menu` VALUES ('283', '200', '搜索历史', 'pages/shop/searchhistory.html', null, '1', 'fa fa-search', '6', '1');
 INSERT INTO `sys_menu` VALUES ('284', '283', '查看', null, 'searchhistory:list,searchhistory:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('285', '283', '删除', null, 'searchhistory:delete', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('286', '200', '购物车', 'pages/shop/cart.html', null, '1', 'fa fa-shopping-cart', '6', '0');
+INSERT INTO `sys_menu` VALUES ('286', '200', '购物车', 'pages/shop/cart.html', null, '1', 'fa fa-shopping-cart', '6', '1');
 INSERT INTO `sys_menu` VALUES ('287', '286', '查看', null, 'cart:list,cart:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('288', '286', '删除', null, 'cart:delete', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('289', '357', '所有商品', 'pages/shop/goods.html', null, '1', 'fa fa-shopping-bag', '1', '0');
@@ -383,7 +383,7 @@ INSERT INTO `sys_menu` VALUES ('293', '289', '删除', null, 'goods:delete', '2'
 INSERT INTO `sys_menu` VALUES ('294', '374', '所有管理', 'pages/shop/order.html', null, '1', 'fa fa-sitemap', '6', '0');
 INSERT INTO `sys_menu` VALUES ('295', '294', '查看', null, 'order:list,order:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('296', '294', '发货', null, 'order:sendGoods', '2', null, '6', '0');
-INSERT INTO `sys_menu` VALUES ('297', '222', '商品类型', 'pages/shop/category.html', null, '1', 'fa fa-ship', '3', '0');
+INSERT INTO `sys_menu` VALUES ('297', '222', '商品类型', 'pages/shop/category.html', null, '1', 'fa fa-ship', '3', '1');
 INSERT INTO `sys_menu` VALUES ('298', '297', '查看', null, 'category:list,category:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('299', '297', '新增', null, 'category:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('300', '297', '修改', null, 'category:update', '2', null, '6', '0');
@@ -401,7 +401,7 @@ INSERT INTO `sys_menu` VALUES ('311', '307', '删除', null, 'channel:delete', '
 INSERT INTO `sys_menu` VALUES ('312', '0', '微信公众号', null, null, '0', 'fa fa-weixin', '6', '1');
 INSERT INTO `sys_menu` VALUES ('313', '0', '进销存', null, null, '0', 'fa fa-truck', '6', '1');
 INSERT INTO `sys_menu` VALUES ('314', '0', '统计报表', null, null, '0', 'fa fa-line-chart', '7', '0');
-INSERT INTO `sys_menu` VALUES ('315', '222', '商品问答', 'pages/shop/goodsissue.html', null, '1', 'fa fa-question-circle-o', '6', '0');
+INSERT INTO `sys_menu` VALUES ('315', '222', '商品问答', 'pages/shop/goodsissue.html', null, '1', 'fa fa-question-circle-o', '6', '1');
 INSERT INTO `sys_menu` VALUES ('316', '315', '查看', null, 'goodsissue:list,goodsissue:info', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('317', '315', '新增', null, 'goodsissue:save', '2', null, '6', '0');
 INSERT INTO `sys_menu` VALUES ('318', '315', '修改', null, 'goodsissue:update', '2', null, '6', '0');
